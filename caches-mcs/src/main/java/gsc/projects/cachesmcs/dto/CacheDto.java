@@ -4,7 +4,7 @@ package gsc.projects.cachesmcs.dto;
 import gsc.projects.cachesmcs.model.CacheLevel;
 import gsc.projects.cachesmcs.model.DifficultyLevel;
 import gsc.projects.cachesmcs.model.GroundLevel;
-import gsc.projects.cachesmcs.model.Size;
+import gsc.projects.cachesmcs.model.CacheSize;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,9 +26,9 @@ public class CacheDto {
 
     private GroundLevel groundLevel;
 
-    private Size size;
+    private CacheSize cacheSize;
 
-    private CacheLevel cacheLevel;
+    private int cacheLevel;
 
     private double experienceEarned;
 }

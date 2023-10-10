@@ -1,6 +1,6 @@
 package gsc.projects.cachesmcs.model;
 
-public enum Size {
+public enum CacheSize {
 
     VERYSMALL(1),
     SMALL(2),
@@ -10,7 +10,7 @@ public enum Size {
 
     private final int sizeLevel;
 
-    Size(int sizeLevel) {
+    CacheSize(int sizeLevel) {
         this.sizeLevel = sizeLevel;
     }
 

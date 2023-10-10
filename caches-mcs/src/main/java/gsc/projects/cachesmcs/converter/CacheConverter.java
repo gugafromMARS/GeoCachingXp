@@ -2,6 +2,7 @@ package gsc.projects.cachesmcs.converter;
 
 import gsc.projects.cachesmcs.dto.CacheCreateDto;
 import gsc.projects.cachesmcs.dto.CacheDto;
+import gsc.projects.cachesmcs.dto.CacheLevelingDto;
 import gsc.projects.cachesmcs.model.Cache;
 import org.springframework.stereotype.Component;
 
@@ -9,6 +10,12 @@ import org.springframework.stereotype.Component;
 public class CacheConverter {
 
 
+    public CacheLevelingDto toCacheLevelingDto(Cache cache){
+        return CacheLevelingDto.builder()
+                .id(cache.getId())
+                .experienceEarned(cache.getExperienceEarned())
+                .build();
+    }
     public CacheDto toDto(Cache cache) {
         return CacheDto.builder()
                 .id(cache.getId())
@@ -17,7 +24,7 @@ public class CacheConverter {
                 .tip(cache.getTip())
                 .difficulty(cache.getDifficulty())
                 .groundLevel(cache.getGroundLevel())
-                .size(cache.getSize())
+                .cacheSize(cache.getCacheSize())
                 .cacheLevel(cache.getCacheLevel())
                 .experienceEarned(cache.getExperienceEarned())
                 .build();
@@ -30,7 +37,7 @@ public class CacheConverter {
                 .withTip(cacheCreateDto.getTip())
                 .withDifficulty(cacheCreateDto.getDifficulty())
                 .withGroundLevel(cacheCreateDto.getGroundLevel())
-                .withSize(cacheCreateDto.getSize())
+                .withSize(cacheCreateDto.getCacheSize())
                 .withCacheLevel(cacheCreateDto.getCacheLevel())
                 .withExperienceEarned()
                 .build();
