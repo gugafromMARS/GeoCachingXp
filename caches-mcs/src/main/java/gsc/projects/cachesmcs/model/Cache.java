@@ -27,14 +27,17 @@ public class Cache {
     private DifficultyLevel difficulty;
 
     @Enumerated(value = EnumType.STRING)
+    @Column(name = "ground_level")
     private GroundLevel groundLevel;
 
     @Enumerated(value = EnumType.STRING)
     private Size size;
 
     @Enumerated(value = EnumType.STRING)
+    @Column(name = "cache_level")
     private CacheLevel cacheLevel;
 
+    @Column(name = "experience_earned")
     private double experienceEarned;
 
     public static CacheBuilder builder(){
