@@ -3,7 +3,7 @@ package gsc.projects.cachesmcs.dto;
 import gsc.projects.cachesmcs.model.CacheLevel;
 import gsc.projects.cachesmcs.model.DifficultyLevel;
 import gsc.projects.cachesmcs.model.GroundLevel;
-import gsc.projects.cachesmcs.model.Size;
+import gsc.projects.cachesmcs.model.CacheSize;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import lombok.Getter;
@@ -22,8 +22,7 @@ public class CacheCreateDto {
     private GroundLevel groundLevel;
 
     @Enumerated(value = EnumType.STRING)
-    private Size size;
+    private CacheSize cacheSize;
 
-    @Enumerated(value = EnumType.STRING)
-    private CacheLevel cacheLevel;
+    private int cacheLevel;
 }

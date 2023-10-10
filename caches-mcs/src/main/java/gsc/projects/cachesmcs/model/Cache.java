@@ -31,11 +31,10 @@ public class Cache {
     private GroundLevel groundLevel;
 
     @Enumerated(value = EnumType.STRING)
-    private Size size;
+    @Column(name ="cache_size")
+    private CacheSize cacheSize;
 
-    @Enumerated(value = EnumType.STRING)
-    @Column(name = "cache_level")
-    private CacheLevel cacheLevel;
+    private int cacheLevel;
 
     @Column(name = "experience_earned")
     private double experienceEarned;
@@ -77,18 +76,18 @@ public class Cache {
             return this;
         }
 
-        public CacheBuilder withSize(Size size){
-            cache.setSize(size);
+        public CacheBuilder withSize(CacheSize cacheSize){
+            cache.setCacheSize(cacheSize);
             return this;
         }
 
-        public CacheBuilder withCacheLevel(CacheLevel cacheLevel){
+        public CacheBuilder withCacheLevel(int cacheLevel){
             cache.setCacheLevel(cacheLevel);
             return this;
         }
 
         public CacheBuilder withExperienceEarned(){
-            double exp = (double) cache.getCacheLevel().getLevel() / 10;
+            double exp = (double) cache.getCacheLevel() / 10;
             cache.setExperienceEarned(exp);
             return this;
         }
