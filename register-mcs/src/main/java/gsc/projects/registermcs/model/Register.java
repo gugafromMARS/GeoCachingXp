@@ -22,6 +22,12 @@ public class Register {
     @Column(name = "local_date")
     private LocalDate localDate;
 
+    @Column(name = "cache_code")
+    private String cacheCode;
+
+    @Column(name = "userEmail")
+    private String userEmail;
+
     public static RegisterBuilder builder(){
         return new RegisterBuilder();
     }
@@ -36,6 +42,16 @@ public class Register {
 
         public RegisterBuilder withLocalDate(LocalDate localDate){
             register.setLocalDate(localDate);
+            return this;
+        }
+
+        public RegisterBuilder withCacheCode(String cacheCode){
+            register.setCacheCode(cacheCode);
+            return this;
+        }
+
+        public RegisterBuilder withUserEmail(String userEmail){
+            register.setUserEmail(userEmail);
             return this;
         }
 

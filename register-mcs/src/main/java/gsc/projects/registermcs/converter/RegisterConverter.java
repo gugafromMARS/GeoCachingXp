@@ -12,6 +12,8 @@ public class RegisterConverter {
         return RegisterDto.builder()
                 .id(register.getId())
                 .localDate(register.getLocalDate())
+                .cacheCode(register.getCacheCode())
+                .userEmail(register.getUserEmail())
                 .build();
     }
 
