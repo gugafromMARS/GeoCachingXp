@@ -19,8 +19,11 @@ public class Level {
     @Column(name = "id", nullable = false)
     private Long id;
 
+
+    @Column(name = "user_email")
     private String userEmail;
 
+    @Column(name = "user_level")
     private double userLevel;
 
     public static LevelBuilder builder(){
