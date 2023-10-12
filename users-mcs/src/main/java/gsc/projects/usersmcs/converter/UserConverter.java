@@ -11,12 +11,14 @@ public class UserConverter {
     public UserDto toDto(User user){
         return UserDto.builder()
                 .id(user.getId())
+                .name(user.getName())
                 .email(user.getEmail())
                 .build();
     }
 
     public User fromCreateDto(UserCreateDto userCreateDto){
         return User.builder()
+                .withName(userCreateDto.getName())
                 .withAge(userCreateDto.getAge())
                 .withAddress(userCreateDto.getAddress())
                 .withEmail(userCreateDto.getEmail())

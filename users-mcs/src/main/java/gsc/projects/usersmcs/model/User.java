@@ -3,11 +3,15 @@ package gsc.projects.usersmcs.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 @Entity
 @Table(name = "users")
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
@@ -15,38 +19,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
+    private String name;
     private int age;
     private String address;
     private String email;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public int getAge(){
-        return age;
-    }
-    public void setAge(int age){
-        this.age = age;
-    }
-    public String getAddress(){
-        return address;
-    }
-    public void setAddress(String address){
-        this.address = address;
-    }
-
-    public String getEmail(){
-        return email;
-    }
-
-    public void setEmail(String email){
-        this.email = email;
-    }
 
     public static UserBuilder builder(){
         return new UserBuilder();
@@ -58,6 +35,11 @@ public class User {
 
         public UserBuilder() {
             user = new User();
+        }
+
+        public UserBuilder withName(String name){
+            user.setName(name);
+            return this;
         }
 
         public UserBuilder withAge(int age){
