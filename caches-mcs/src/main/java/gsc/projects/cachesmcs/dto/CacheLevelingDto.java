@@ -12,5 +12,8 @@ public class CacheLevelingDto {
 
     private Long id;
 
+    private String cacheCode;
+
     private double experienceEarned;
+
 }

@@ -14,6 +14,7 @@ public class CacheConverter {
         return CacheLevelingDto.builder()
                 .id(cache.getId())
                 .experienceEarned(cache.getExperienceEarned())
+                .cacheCode(cache.getCacheCode())
                 .build();
     }
     public CacheDto toDto(Cache cache) {
@@ -27,12 +28,14 @@ public class CacheConverter {
                 .cacheSize(cache.getCacheSize())
                 .cacheLevel(cache.getCacheLevel())
                 .experienceEarned(cache.getExperienceEarned())
+                .cacheCode(cache.getCacheCode())
                 .build();
     }
 
 
     public Cache fromCreateDto(CacheCreateDto cacheCreateDto){
         return Cache.builder()
+                .withAddress(cacheCreateDto.getAddress())
                 .withDescription(cacheCreateDto.getDescription())
                 .withTip(cacheCreateDto.getTip())
                 .withDifficulty(cacheCreateDto.getDifficulty())
@@ -40,6 +43,7 @@ public class CacheConverter {
                 .withSize(cacheCreateDto.getCacheSize())
                 .withCacheLevel(cacheCreateDto.getCacheLevel())
                 .withExperienceEarned()
+                .withCacheCode(cacheCreateDto.getCacheCode())
                 .build();
     }
 }

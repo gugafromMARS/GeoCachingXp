@@ -11,6 +11,9 @@ import lombok.Getter;
 @Getter
 public class CacheCreateDto {
 
+
+    private String address;
+
     private String description;
 
     private String tip;
@@ -25,4 +28,7 @@ public class CacheCreateDto {
     private CacheSize cacheSize;
 
     private int cacheLevel;
+
+    private String cacheCode;
+
 }

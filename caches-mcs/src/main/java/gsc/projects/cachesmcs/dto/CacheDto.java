@@ -31,4 +31,6 @@ public class CacheDto {
     private int cacheLevel;
 
     private double experienceEarned;
+
+    private String cacheCode;
 }
