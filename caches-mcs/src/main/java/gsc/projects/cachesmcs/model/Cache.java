@@ -39,6 +39,8 @@ public class Cache {
     @Column(name = "experience_earned")
     private double experienceEarned;
 
+    private String cacheCode;
+
     public static CacheBuilder builder(){
         return new CacheBuilder();
     }
@@ -89,6 +91,16 @@ public class Cache {
         public CacheBuilder withExperienceEarned(){
             double exp = (double) cache.getCacheLevel() / 10;
             cache.setExperienceEarned(exp);
+            return this;
+        }
+
+        public CacheBuilder withCacheCode(String code){
+            String[] newCode = code.trim().split(" ");
+            String checkedCode = "";
+            for(String s : newCode){
+                checkedCode += s;
+            }
+            cache.setCacheCode(checkedCode);
             return this;
         }
 
