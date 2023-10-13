@@ -16,12 +16,13 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class UserServiceImp {
+public class UserServiceImp implements UserService {
 
     private final UserRepository userRepository;
 
     private final UserConverter userConverter;
 
+    @Override
     public UserDto createUser(UserCreateDto userCreateDto) {
         User existingUser = userRepository.findByEmail(userCreateDto.getEmail());
 
@@ -35,6 +36,7 @@ public class UserServiceImp {
     }
 
 
+    @Override
     public UserDto getUserById(Long userId) {
           User existingUser = userRepository.findById(userId)
                   .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
@@ -42,6 +44,7 @@ public class UserServiceImp {
     }
 
 
+    @Override
     public List<UserDto> getAllUsers() {
         return userRepository.findAll().stream()
                 .map(user -> userConverter.toDto(user))
@@ -49,6 +52,7 @@ public class UserServiceImp {
     }
 
 
+    @Override
     public void deleteUserById(Long userId) {
         User existingUser = userRepository.findById(userId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
@@ -56,6 +60,7 @@ public class UserServiceImp {
     }
 
 
+    @Override
     public UserDto updateUserById(Long userId, UserUpdateDto userUpdateDto) {
            User existingUser = userRepository.findById(userId)
                    .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
