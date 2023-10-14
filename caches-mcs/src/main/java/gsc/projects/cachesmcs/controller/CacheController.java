@@ -28,7 +28,7 @@ public class CacheController {
 
     @PostMapping
     public ResponseEntity<?> create(@RequestBody CacheCreateDto cacheCreateDto){
-        return ResponseEntity.ok(cacheService.createCache(cacheCreateDto));
+        return new ResponseEntity<>(cacheService.createCache(cacheCreateDto), HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{cacheId}")
