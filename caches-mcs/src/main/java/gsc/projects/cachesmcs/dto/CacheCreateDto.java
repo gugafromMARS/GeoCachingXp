@@ -7,8 +7,10 @@ import gsc.projects.cachesmcs.model.CacheSize;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class CacheCreateDto {
 
 
