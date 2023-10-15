@@ -16,10 +16,20 @@ public class UserLevelCalculator {
 
     @Transactional
     public ULevel increaseLevel(UserDto userDto, CacheLevelingDto cacheLevelingDto){
-        ULevel currentLevel = userLevelRepository.findByUserEmail(userDto.getEmail());
-        double updateLevel = currentLevel.getUserLevel() + cacheLevelingDto.getExperienceEarned();
-        currentLevel.setUserLevel(updateLevel);
-        userLevelRepository.save(currentLevel);
-        return currentLevel;
+        ULevel uLevel = userLevelRepository.findByUserEmail(userDto.getEmail());
+        if(uLevel == null){
+
+            uLevel = new ULevel();
+            uLevel.setUserLevel(1);
+            uLevel.setUserEmail(userDto.getEmail());
+            userLevelRepository.save(uLevel);
+
+        } else {
+            double currentLevel = uLevel.getUserLevel();
+            double updateLevel = currentLevel + cacheLevelingDto.getExperienceEarned();
+            uLevel.setUserLevel(updateLevel);
+            userLevelRepository.save(uLevel);
+        }
+        return uLevel;
     }
 }
