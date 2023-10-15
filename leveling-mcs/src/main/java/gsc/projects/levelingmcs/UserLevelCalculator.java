@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class UserLevelCalculator {
 
-    private static UserLevelRepository userLevelRepository;
+    private final UserLevelRepository userLevelRepository;
 
     @Transactional
     public ULevel increaseLevel(UserDto userDto, CacheLevelingDto cacheLevelingDto){

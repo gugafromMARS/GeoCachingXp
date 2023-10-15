@@ -10,7 +10,9 @@ import gsc.projects.levelingmcs.dto.UserLevelDto;
 import gsc.projects.levelingmcs.model.ULevel;
 import gsc.projects.levelingmcs.repository.UserLevelRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
 @AllArgsConstructor
@@ -29,6 +31,9 @@ public class UserLevelServiceImp {
 
     public UserLevelDto getLevelByEmail(String userEmail) {
         ULevel uLevel = userLevelRepository.findByUserEmail(userEmail);
+        if(uLevel == null){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User don't have level yet");
+        }
         UserDto userDto = apiUser.getUser(userEmail);
 
         return userLevelConverter.toDto(userDto, uLevel);
