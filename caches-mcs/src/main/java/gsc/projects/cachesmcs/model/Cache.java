@@ -84,7 +84,11 @@ public class Cache {
         }
 
         public CacheBuilder withCacheLevel(int cacheLevel){
-            cache.setCacheLevel(cacheLevel);
+            if(cacheLevel >= 1 && cacheLevel <= 5){
+                cache.setCacheLevel(cacheLevel);
+            } else {
+                cache.setCacheLevel(1);
+            }
             return this;
         }
 
