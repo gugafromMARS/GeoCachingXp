@@ -16,9 +16,9 @@ public class UserController {
     private final UserService userService;
 
 
-    @GetMapping("/{userId}")
-    public ResponseEntity<?> getUser(@PathVariable ("userId") Long userId){
-        return ResponseEntity.ok(userService.getUserById(userId));
+    @GetMapping("/{userEmail}")
+    public ResponseEntity<?> getUser(@PathVariable ("userEmail") String userEmail){
+        return ResponseEntity.ok(userService.getUserByEmail(userEmail));
     }
 
     @GetMapping

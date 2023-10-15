@@ -1,12 +1,12 @@
 package gsc.projects.levelingmcs.repository;
 
-import gsc.projects.levelingmcs.model.Level;
+import gsc.projects.levelingmcs.model.ULevel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface LevelRepository extends JpaRepository<Level, Long> {
+public interface UserLevelRepository extends JpaRepository<ULevel, Long> {
 
-    Level findByUserEmail(String userEmail);
+    ULevel findByUserEmail(String userEmail);
 }

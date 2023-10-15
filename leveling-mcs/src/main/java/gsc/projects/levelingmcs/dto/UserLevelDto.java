@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public class LevelDto {
+public class UserLevelDto {
 
     private UserDto userDto;
     private double userLevel;
