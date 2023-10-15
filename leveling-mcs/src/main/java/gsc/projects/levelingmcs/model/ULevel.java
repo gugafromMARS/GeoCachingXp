@@ -13,7 +13,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Level {
+public class ULevel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -32,24 +32,24 @@ public class Level {
 
     public static class LevelBuilder {
 
-        private Level level;
+        private ULevel uLevel;
 
         public LevelBuilder() {
-            level = new Level();
+            uLevel = new ULevel();
         }
 
         public LevelBuilder withUserEmail(String userEmail){
-            level.setUserEmail(userEmail);
+            uLevel.setUserEmail(userEmail);
             return this;
         }
 
         public LevelBuilder withUserLevel(double userLevel){
-            level.setUserLevel(userLevel);
+            uLevel.setUserLevel(userLevel);
             return this;
         }
 
-        public Level build(){
-            return level;
+        public ULevel build(){
+            return uLevel;
         }
     }
 

@@ -26,6 +26,11 @@ public class CacheController {
         return ResponseEntity.ok(cacheService.getCacheByCode(cacheCode));
     }
 
+    @GetMapping("/level/{cacheCode}")
+    public ResponseEntity<?> getCacheLevel(@PathVariable ("cacheCode") String cacheCode){
+        return ResponseEntity.ok(cacheService.getCacheForLevel(cacheCode));
+    }
+
     @PostMapping
     public ResponseEntity<?> create(@RequestBody CacheCreateDto cacheCreateDto){
         return new ResponseEntity<>(cacheService.createCache(cacheCreateDto), HttpStatus.CREATED);

@@ -37,9 +37,11 @@ public class UserServiceImp implements UserService {
 
 
     @Override
-    public UserDto getUserById(Long userId) {
-          User existingUser = userRepository.findById(userId)
-                  .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found"));
+    public UserDto getUserByEmail(String userEmail) {
+          User existingUser = userRepository.findByEmail(userEmail);
+          if(existingUser == null){
+              throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found");
+          }
           return userConverter.toDto(existingUser);
     }
 
