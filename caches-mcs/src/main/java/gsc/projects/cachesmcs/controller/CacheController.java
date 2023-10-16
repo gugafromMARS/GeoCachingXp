@@ -30,6 +30,11 @@ public class CacheController {
     public ResponseEntity<?> getCacheLevel(@PathVariable ("cacheCode") String cacheCode){
         return ResponseEntity.ok(cacheService.getCacheForLevel(cacheCode));
     }
+    @GetMapping("/register/{cacheCode}")
+    public ResponseEntity<?> getCacheForRegister(@PathVariable ("cacheCode") String cacheCode){
+        return ResponseEntity.ok(cacheService.getCacheForReg(cacheCode));
+    }
+
 
     @PostMapping
     public ResponseEntity<?> create(@RequestBody CacheCreateDto cacheCreateDto){

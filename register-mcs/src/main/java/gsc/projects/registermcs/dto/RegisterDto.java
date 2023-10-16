@@ -15,6 +15,5 @@ public class RegisterDto {
 
     private Long id;
     private LocalDate localDate;
-    private String cacheCode;
-    private String userEmail;
+    private CacheRegisterDto cacheRegisterDto;
 }

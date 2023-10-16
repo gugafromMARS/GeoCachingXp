@@ -99,7 +99,7 @@ public class Cache {
         }
 
         public CacheBuilder withCacheCode(String code){
-            String[] newCode = code.trim().split(" ");
+            String[] newCode = code.trim().toLowerCase().split(" ");
             String checkedCode = "";
             for(String s : newCode){
                 checkedCode += s;

@@ -3,10 +3,7 @@ package gsc.projects.cachesmcs.service;
 
 import gsc.projects.cachesmcs.controller.CacheController;
 import gsc.projects.cachesmcs.converter.CacheConverter;
-import gsc.projects.cachesmcs.dto.CacheCreateDto;
-import gsc.projects.cachesmcs.dto.CacheDto;
-import gsc.projects.cachesmcs.dto.CacheLevelingDto;
-import gsc.projects.cachesmcs.dto.CacheUpdateDto;
+import gsc.projects.cachesmcs.dto.*;
 import gsc.projects.cachesmcs.model.Cache;
 import gsc.projects.cachesmcs.repository.CacheRepository;
 import lombok.AllArgsConstructor;
@@ -78,5 +75,15 @@ public class CacheServiceImp implements CacheService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Cache not found");
         }
         return cacheConverter.toCacheLevelingDto(existingCache);
+    }
+
+    @Override
+    public CacheRegisterDto getCacheForReg(String cacheCode) {
+        Cache existingCache = cacheRepository.findByCacheCode(cacheCode);
+
+        if(existingCache == null){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Cache not found");
+        }
+        return cacheConverter.cacheRegisterDto(existingCache);
     }
 }
