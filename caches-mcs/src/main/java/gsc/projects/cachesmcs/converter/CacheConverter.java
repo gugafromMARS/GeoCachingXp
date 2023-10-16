@@ -3,13 +3,23 @@ package gsc.projects.cachesmcs.converter;
 import gsc.projects.cachesmcs.dto.CacheCreateDto;
 import gsc.projects.cachesmcs.dto.CacheDto;
 import gsc.projects.cachesmcs.dto.CacheLevelingDto;
+import gsc.projects.cachesmcs.dto.CacheRegisterDto;
 import gsc.projects.cachesmcs.model.Cache;
 import org.springframework.stereotype.Component;
 
 @Component
 public class CacheConverter {
 
-
+    public CacheRegisterDto cacheRegisterDto(Cache cache){
+        return CacheRegisterDto.builder()
+                .id(cache.getId())
+                .address(cache.getAddress())
+                .description(cache.getDescription())
+                .tip(cache.getTip())
+                .cacheLevel(cache.getCacheLevel())
+                .cacheCode(cache.getCacheCode())
+                .build();
+    }
     public CacheLevelingDto toCacheLevelingDto(Cache cache){
         return CacheLevelingDto.builder()
                 .id(cache.getId())
