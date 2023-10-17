@@ -16,12 +16,13 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class RegisterServiceImp {
+public class RegisterServiceImp implements RegisterService {
 
     private final RegisterRepository registerRepository;
 
     private final RegisterConverter registerConverter;
 
+    @Override
     public List<RegisterDto> getAll(String userEmail) {
         List<Register> registers = registerRepository.findAllByUserEmail(userEmail);
         if(registers.size() == 0){
@@ -30,6 +31,7 @@ public class RegisterServiceImp {
         return registerConverter.toDtos(registers);
     }
 
+    @Override
     public RegisterDto getByEmailAndCacheCode(String userEmail, String cacheCode) {
         Register existingRegister = registerRepository.findRegisterByUserEmailAndCacheCode(userEmail,
                 cacheCode);
@@ -40,6 +42,7 @@ public class RegisterServiceImp {
     }
 
 
+    @Override
     public RegisterDto createRegister(RegisterCreateDto registerCreateDto) {
         Register existingRegister = registerRepository.findRegisterByUserEmailAndCacheCode(registerCreateDto.getUserEmail(),
                 registerCreateDto.getCacheCode());
