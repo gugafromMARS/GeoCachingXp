@@ -1,12 +1,12 @@
 package gsc.projects.levelingmcs.dto;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserLevelDto {
 
     private UserDto userDto;
