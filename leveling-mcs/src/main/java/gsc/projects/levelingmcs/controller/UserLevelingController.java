@@ -5,6 +5,7 @@ import gsc.projects.levelingmcs.dto.LevelCreateDto;
 import gsc.projects.levelingmcs.service.UserLevelServiceImp;
 import lombok.AllArgsConstructor;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +23,7 @@ public class UserLevelingController {
 
     @PostMapping()
     public ResponseEntity<?> createLeveling(@RequestBody LevelCreateDto levelCreateDto){
-        return ResponseEntity.ok(userLevelServiceImp.increaseUserLevel(levelCreateDto));
+        return new ResponseEntity<>(userLevelServiceImp.increaseUserLevel(levelCreateDto), HttpStatus.CREATED);
     }
 
 
