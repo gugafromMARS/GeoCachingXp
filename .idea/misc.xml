@@ -8,6 +8,8 @@
         <option value="$PROJECT_DIR$/caches-mcs/pom.xml" />
         <option value="$PROJECT_DIR$/leveling-mcs/pom.xml" />
         <option value="$PROJECT_DIR$/register-mcs/pom.xml" />
+        <option value="$PROJECT_DIR$/service-resgistry/pom.xml" />
+        <option value="$PROJECT_DIR$/service-registry/pom.xml" />
       </list>
     </option>
   </component>
