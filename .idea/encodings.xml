@@ -7,6 +7,10 @@
     <file url="file://$PROJECT_DIR$/leveling-mcs/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/register-mcs/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/register-mcs/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service-registry/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service-registry/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service-resgistry/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/service-resgistry/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/users-mcs/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/users-mcs/src/main/resources" charset="UTF-8" />
   </component>
