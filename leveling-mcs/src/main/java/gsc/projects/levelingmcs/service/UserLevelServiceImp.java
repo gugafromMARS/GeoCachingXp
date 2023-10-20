@@ -42,7 +42,7 @@ public class UserLevelServiceImp implements UserLevelService {
         return userLevelConverter.toDto(userDto, uLevel);
     }
 
-    public UserLevelDto getDefaultUser(String userEmail) throws Exception{
+    public UserLevelDto getDefaultUser(String userEmail, Exception exception) {
         ULevel uLevel = userLevelRepository.findByUserEmail(userEmail);
         if(uLevel == null){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User don't have level yet");
@@ -64,7 +64,7 @@ public class UserLevelServiceImp implements UserLevelService {
         return userLevelConverter.toDto(userDto, uLevel);
     }
 
-    public UserLevelDto getDefaultUserAndCache(LevelCreateDto levelCreateDto) throws Exception{
+    public UserLevelDto getDefaultUserAndCache(LevelCreateDto levelCreateDto, Exception exception){
         UserDto userDto = new UserDto("default@email.com");
         CacheLevelingDto cacheLevelingDto = new CacheLevelingDto(0);
         ULevel uLevel = new ULevel(userDto.getEmail(), 0);
