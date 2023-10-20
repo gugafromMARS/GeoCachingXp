@@ -26,6 +26,11 @@ public class ULevel {
     @Column(name = "user_level")
     private double userLevel;
 
+    public ULevel(String userEmail, double userLevel) {
+        this.userEmail = userEmail;
+        this.userLevel = userLevel;
+    }
+
     public static LevelBuilder builder(){
         return new LevelBuilder();
     }

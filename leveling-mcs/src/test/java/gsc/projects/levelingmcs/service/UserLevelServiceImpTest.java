@@ -11,8 +11,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.util.Optional;
-
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.when;
@@ -31,7 +29,7 @@ class UserLevelServiceImpTest {
     UserLevelCalculator userLevelCalculator;
 
     @InjectMocks
-    UserLevelServiceImp userLevelServiceImp;
+    UserLevelService userLevelService;
 
 
     LevelCreateDto levelCreateDto;
