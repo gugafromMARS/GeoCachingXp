@@ -4,9 +4,11 @@ package gsc.projects.usersmcs.service;
 import gsc.projects.usersmcs.converter.UserConverter;
 import gsc.projects.usersmcs.dto.UserCreateDto;
 import gsc.projects.usersmcs.dto.UserDto;
+import gsc.projects.usersmcs.dto.UserLevelDto;
 import gsc.projects.usersmcs.dto.UserUpdateDto;
 import gsc.projects.usersmcs.model.User;
 import gsc.projects.usersmcs.repository.UserRepository;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -21,6 +23,8 @@ public class UserServiceImp implements UserService {
     private final UserRepository userRepository;
 
     private final UserConverter userConverter;
+
+    private final APILevel apiLevel;
 
     @Override
     public UserDto createUser(UserCreateDto userCreateDto) {
@@ -69,5 +73,20 @@ public class UserServiceImp implements UserService {
            existingUser.setEmail(userUpdateDto.getEmail());
            userRepository.save(existingUser);
            return userConverter.toDto(existingUser);
+    }
+
+    @Override
+    @CircuitBreaker(name = "${spring.application.name}", fallbackMethod = "getDefaultLevel")
+    public UserLevelDto getUserLevel(String userEmail) {
+        return apiLevel.getUserLevel(userEmail);
+    }
+
+    public UserLevelDto getDefaultLevel(String userEmail, Exception exception){
+        User user = userRepository.findByEmail(userEmail);
+        if(user == null){
+            throw  new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found");
+        }
+        UserDto userDto = userConverter.toDto(user);
+        return new UserLevelDto(userDto, 0);
     }
 }
