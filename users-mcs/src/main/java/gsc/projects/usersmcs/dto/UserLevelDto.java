@@ -12,6 +12,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UserLevelDto {
 
-    private UserDto userDto;
+    private String userEmail;
     private double userLevel;
 }

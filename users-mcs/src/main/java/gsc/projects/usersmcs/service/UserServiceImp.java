@@ -78,7 +78,8 @@ public class UserServiceImp implements UserService {
     @Override
     @CircuitBreaker(name = "${spring.application.name}", fallbackMethod = "getDefaultLevel")
     public UserLevelDto getUserLevel(String userEmail) {
-        return apiLevel.getUserLevel(userEmail);
+        UserLevelDto userLevelDto =  apiLevel.getLevel(userEmail);
+        return userLevelDto;
     }
 
     public UserLevelDto getDefaultLevel(String userEmail, Exception exception){
@@ -87,6 +88,6 @@ public class UserServiceImp implements UserService {
             throw  new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found");
         }
         UserDto userDto = userConverter.toDto(user);
-        return new UserLevelDto(userDto, 0);
+        return new UserLevelDto(userEmail, 1);
     }
 }
