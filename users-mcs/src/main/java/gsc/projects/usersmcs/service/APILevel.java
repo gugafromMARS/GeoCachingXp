@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "REGISTER-SERVICE")
 public interface APILevel {
 
-    @GetMapping("/level/user/{userEmail}")
-    UserLevelDto getUserLevel(@PathVariable("userEmail") String userEmail);
+    @GetMapping("/register/level/{userEmail}")
+    UserLevelDto getLevel(@PathVariable ("userEmail") String userEmail);
 }
