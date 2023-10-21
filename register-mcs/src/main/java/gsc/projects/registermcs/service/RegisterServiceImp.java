@@ -7,6 +7,7 @@ import gsc.projects.registermcs.converter.RegisterConverter;
 import gsc.projects.registermcs.dto.CacheRegisterDto;
 import gsc.projects.registermcs.dto.RegisterCreateDto;
 import gsc.projects.registermcs.dto.RegisterDto;
+import gsc.projects.registermcs.dto.UserLevelDto;
 import gsc.projects.registermcs.model.Register;
 import gsc.projects.registermcs.repository.RegisterRepository;
 import lombok.AllArgsConstructor;
@@ -66,5 +67,15 @@ public class RegisterServiceImp implements RegisterService {
             return registerConverter.toDto(newRegister);
         }
         throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Can not registry this cache because you dont have level");
+    }
+
+    @Override
+    public UserLevelDto getUserLevel(String userEmail) {
+        List<Register> registersList = registerRepository.findAllByUserEmail(userEmail);
+        if(registersList != null && registersList.size() > 0){
+            Register lastRegister = registersList.get(registersList.size() - 1);
+            return registerConverter.toUserLevelDto(userEmail, lastRegister.getUserLevel());
+        }
+        return registerConverter.toUserLevelDto(userEmail, 1.0);
     }
 }

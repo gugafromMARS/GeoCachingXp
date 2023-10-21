@@ -14,7 +14,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="leveling-mcs" target="17" />
+      <module name="leveling-mcs" target="1.5" />
       <module name="service-resgistry" target="17" />
     </bytecodeTargetLevel>
   </component>
@@ -22,7 +22,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="api-gateway" options="-parameters" />
       <module name="caches-mcs" options="-parameters" />
-      <module name="leveling-mcs" options="-parameters" />
+      <module name="leveling-mcs" options="" />
       <module name="register-mcs" options="-parameters" />
       <module name="service-registry" options="-parameters" />
       <module name="service-resgistry" options="-parameters" />

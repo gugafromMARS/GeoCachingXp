@@ -3,10 +3,8 @@ package gsc.projects.registermcs;
 
 import gsc.projects.registermcs.dto.CacheRegisterDto;
 import gsc.projects.registermcs.dto.RegisterCreateDto;
-import gsc.projects.registermcs.dto.UserLevelDto;
 import gsc.projects.registermcs.model.Register;
 import gsc.projects.registermcs.repository.RegisterRepository;
-import gsc.projects.registermcs.service.APICache;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 

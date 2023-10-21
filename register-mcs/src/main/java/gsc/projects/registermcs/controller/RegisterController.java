@@ -25,6 +25,11 @@ public class RegisterController {
         return ResponseEntity.ok(registerService.getByEmailAndCacheCode(userEmail, cacheCode));
     }
 
+    @GetMapping("/level/{userEmail}")
+    public ResponseEntity<?> getLevel(@PathVariable ("userEmail") String userEmail){
+        return ResponseEntity.ok(registerService.getUserLevel(userEmail));
+    }
+
     @PostMapping
     public ResponseEntity<?> create(@RequestBody RegisterCreateDto registerCreateDto) {
         return new ResponseEntity<>(registerService.createRegister(registerCreateDto), HttpStatus.CREATED);
