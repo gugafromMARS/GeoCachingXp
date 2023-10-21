@@ -15,8 +15,6 @@ public interface CacheService {
 
     CacheDto updateCache(String cacheCode, CacheUpdateDto cacheUpdateDto);
 
-    CacheLevelingDto getCacheForLevel(String cacheCode);
-
     CacheRegisterDto getCacheForReg(String cacheCode);
 
 }

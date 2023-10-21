@@ -2,7 +2,9 @@ package gsc.projects.registermcs.service;
 
 
 import gsc.projects.registermcs.CanRegistry;
+import gsc.projects.registermcs.LevelCalculator;
 import gsc.projects.registermcs.converter.RegisterConverter;
+import gsc.projects.registermcs.dto.CacheRegisterDto;
 import gsc.projects.registermcs.dto.RegisterCreateDto;
 import gsc.projects.registermcs.dto.RegisterDto;
 import gsc.projects.registermcs.model.Register;
@@ -24,6 +26,10 @@ public class RegisterServiceImp implements RegisterService {
     private final RegisterConverter registerConverter;
 
     private final CanRegistry canRegistry;
+
+    private final LevelCalculator levelCalculator;
+
+    private final APICache apiCache;
 
     @Override
     public List<RegisterDto> getAll(String userEmail) {
@@ -52,11 +58,13 @@ public class RegisterServiceImp implements RegisterService {
         if(existingRegister != null){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Register already exists");
         }
-        if(canRegistry.haveLevel(registerCreateDto)){
-            Register newRegister = registerConverter.fromCreateDto(registerCreateDto);
+        CacheRegisterDto cacheRegisterDto = apiCache.getCacheForRegister(registerCreateDto.getCacheCode());
+        if(canRegistry.haveLevel(registerCreateDto, cacheRegisterDto)){
+            double userLevel = levelCalculator.increaseLevel(registerCreateDto, cacheRegisterDto);
+            Register newRegister = registerConverter.fromCreateDto(registerCreateDto, userLevel);
             registerRepository.save(newRegister);
             return registerConverter.toDto(newRegister);
         }
-        throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Can not registry this cache");
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Can not registry this cache because you dont have level");
     }
 }

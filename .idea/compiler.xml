@@ -8,13 +8,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="api-gateway" />
         <module name="caches-mcs" />
-        <module name="leveling-mcs" />
         <module name="users-mcs" />
         <module name="service-registry" />
         <module name="register-mcs" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="leveling-mcs" target="17" />
       <module name="service-resgistry" target="17" />
     </bytecodeTargetLevel>
   </component>

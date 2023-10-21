@@ -2,7 +2,6 @@ package gsc.projects.cachesmcs.converter;
 
 import gsc.projects.cachesmcs.dto.CacheCreateDto;
 import gsc.projects.cachesmcs.dto.CacheDto;
-import gsc.projects.cachesmcs.dto.CacheLevelingDto;
 import gsc.projects.cachesmcs.dto.CacheRegisterDto;
 import gsc.projects.cachesmcs.model.Cache;
 import org.springframework.stereotype.Component;
@@ -18,15 +17,10 @@ public class CacheConverter {
                 .tip(cache.getTip())
                 .cacheLevel(cache.getCacheLevel())
                 .cacheCode(cache.getCacheCode())
-                .build();
-    }
-    public CacheLevelingDto toCacheLevelingDto(Cache cache){
-        return CacheLevelingDto.builder()
-                .id(cache.getId())
                 .experienceEarned(cache.getExperienceEarned())
-                .cacheCode(cache.getCacheCode())
                 .build();
     }
+
     public CacheDto toDto(Cache cache) {
         return CacheDto.builder()
                 .id(cache.getId())

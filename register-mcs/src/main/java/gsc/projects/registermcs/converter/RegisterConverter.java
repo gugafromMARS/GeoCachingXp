@@ -24,6 +24,7 @@ public class RegisterConverter {
                 .id(register.getId())
                 .localDate(register.getLocalDate())
                 .cacheRegisterDto(cacheRegister)
+                .userLevel(register.getUserLevel())
                 .build();
     }
 
@@ -36,11 +37,12 @@ public class RegisterConverter {
         return registerDtosList;
      }
 
-    public Register fromCreateDto(RegisterCreateDto registerCreateDto){
+    public Register fromCreateDto(RegisterCreateDto registerCreateDto, double userLevel){
         return Register.builder()
                 .withLocalDate(registerCreateDto.getLocaldate())
                 .withUserEmail(registerCreateDto.getUserEmail())
                 .withCacheCode(registerCreateDto.getCacheCode())
+                .withUserLevel(userLevel)
                 .build();
     }
 }
