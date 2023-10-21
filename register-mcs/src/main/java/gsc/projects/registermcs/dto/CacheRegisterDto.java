@@ -21,4 +21,6 @@ public class CacheRegisterDto {
     private int cacheLevel;
 
     private String cacheCode;
+
+    private double experienceEarned;
 }

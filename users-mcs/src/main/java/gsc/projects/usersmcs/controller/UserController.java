@@ -21,10 +21,10 @@ public class UserController {
         return ResponseEntity.ok(userService.getUserByEmail(userEmail));
     }
 
-    @GetMapping("/{userEmail}/level")
-    public ResponseEntity<?> getLevel(@PathVariable ("userEmail") String userEmail) {
-        return ResponseEntity.ok(userService.getUserLevel(userEmail));
-    }
+//    @GetMapping("/{userEmail}/level")
+//    public ResponseEntity<?> getLevel(@PathVariable ("userEmail") String userEmail) {
+//        return ResponseEntity.ok(userService.getUserLevel(userEmail));
+//    }
     @GetMapping
     public ResponseEntity<?> getUsers(){
         return ResponseEntity.ok(userService.getAllUsers());

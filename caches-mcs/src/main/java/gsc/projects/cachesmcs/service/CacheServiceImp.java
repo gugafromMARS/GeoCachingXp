@@ -69,15 +69,6 @@ public class CacheServiceImp implements CacheService {
     }
 
     @Override
-    public CacheLevelingDto getCacheForLevel(String cacheCode) {
-        Cache existingCache = cacheRepository.findByCacheCode(cacheCode);
-        if(existingCache == null){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Cache not found");
-        }
-        return cacheConverter.toCacheLevelingDto(existingCache);
-    }
-
-    @Override
     public CacheRegisterDto getCacheForReg(String cacheCode) {
         Cache existingCache = cacheRepository.findByCacheCode(cacheCode);
 

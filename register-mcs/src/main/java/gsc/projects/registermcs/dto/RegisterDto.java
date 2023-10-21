@@ -16,4 +16,5 @@ public class RegisterDto {
     private Long id;
     private LocalDate localDate;
     private CacheRegisterDto cacheRegisterDto;
+    private double userLevel;
 }
