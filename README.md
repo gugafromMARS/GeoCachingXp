@@ -6,7 +6,8 @@ Welcome to my geocaching xp backend app, this is a replica of geocaching app but
 
 ## Architecture
 
-![ArchitectureImg](https://github.com/gugafromMARS/GeoCachingXp/assets/116969206/7358739e-8f57-41cc-a47c-d377333a0254)
+![ArchitectureImg](https://github.com/gugafromMARS/GeoCachingXp/assets/116969206/eb0c8b7e-5664-4e5a-9f9e-e6c05100db29)
+
 
 ## Technology
 
