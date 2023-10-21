@@ -24,7 +24,7 @@ public class UserServiceImp implements UserService {
 
     private final UserConverter userConverter;
 
-    private final APILevel apiLevel;
+    private final APIUserLevel apiUserLevel;
 
     @Override
     public UserDto createUser(UserCreateDto userCreateDto) {
@@ -78,8 +78,7 @@ public class UserServiceImp implements UserService {
     @Override
     @CircuitBreaker(name = "${spring.application.name}", fallbackMethod = "getDefaultLevel")
     public UserLevelDto getUserLevel(String userEmail) {
-        UserLevelDto userLevelDto =  apiLevel.getLevel(userEmail);
-        return userLevelDto;
+       return apiUserLevel.getLevel(userEmail);
     }
 
     public UserLevelDto getDefaultLevel(String userEmail, Exception exception){
