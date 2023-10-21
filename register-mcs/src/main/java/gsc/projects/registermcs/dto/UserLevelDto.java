@@ -1,13 +1,15 @@
 package gsc.projects.registermcs.dto;
 
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserLevelDto {
 
-    private UserDto userDto;
+    private String userEmail;
     private double userLevel;
 }
